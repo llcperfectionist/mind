@@ -1,0 +1,188 @@
+{% include "header.html" %}
+{% load static %}
+{% for pro in product %}
+ <section class="course-details-page">
+   <div class="col-xs-12 all-course padd-none">
+   <div class="course-product">
+   <h1>ALL COURSES / PYTHON</h1></div></div>
+    <div class="col-xs-12 padd-none course-details-section">
+    <div class="container">
+	<div class="row">
+	<div class="col-md-8 col-sm-8 col-xs-12 padd-none">
+	 <div class="product-page">
+	 <div class="col-md-6 padd-none">
+	 <div class="product-img">
+	 <img src="../{{ media_url }}uploads/{{pro.image}}" alt="product" class="img-responsive" />
+	 </div>
+	 </div>
+	 <div class="col-md-6 padd-none">
+	 <div class="discreption">
+	 <h2>{{pro.name}}</h2>
+	 <span class="ratesss">${{pro.price}}</span>
+	 <h3>One student enrolled</h3>
+		 {{pro.description|safe}}
+		   <div class="enroll-btnn">
+		       {% if request.user.is_authenticated %}
+<!--<form action="{% url 'instamojo' %}" method="post">-->
+<!--{% csrf_token %}-->
+<!--<input id="id_Name" maxlength="100" name="Name" type="hidden" value="{{ user.get_username }}" />-->
+<!--<input id="id_Email" name="Email" type="hidden" value="{{ user.email }}" />-->
+<!--<input id="id_Amount" name="Amount" type="hidden" value="10" />-->
+<!--<input id="id_Purpose" maxlength="100" name="Purpose" value="{{pro.name}},{{pro.id}}" type="hidden" />-->
+<!--<input type="submit" value="BUY NOW" />-->
+<!--</form>-->
+{{ form.render }}
+
+			   			     <a href="../paypal_payment/{{pro.url}}" class="enroll">BUY NOW</a>
+
+
+			      <!--<a href="../instamojo" class="enroll">BUY NOW</a>-->
+			   {% else %}
+		   <a href="../login-form" class="enroll">BUY NOW</a>
+		   {% endif %}
+		   </div>
+	 </div>
+	 </div>
+	 </div>
+		<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						<li class="active">
+							<a href="#tab_default_1" data-toggle="tab">
+							Overview </a>
+						</li>
+						<li>
+							<a href="#tab_default_2" data-toggle="tab">
+							Curriculum </a>
+						</li>
+						<li>
+							<a href="#tab_default_3" data-toggle="tab">
+							Reviews </a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane course-content active" id="tab_default_1">
+							{{pro.brief_description|safe}}
+						</div>
+						<div class="tab-pane course-content" id="tab_default_2">
+                        {{pro.curricalum|safe}}
+						</div>
+						<div class="tab-pane course-content" id="tab_default_3">
+                         {% for rev in reviews_list %}
+							{{rev.name}}<br>
+							{{rev.email}}
+							{{rev.discription|safe}}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-12 padd-none">
+	<div class="trending-course-sidebar">
+	<h2>Trending Courses</h2>
+    {% for tre in ternding %}
+	<a href="../course/{{tre.url}}">
+	<div class="trending-course">
+	 <img src="../{{ media_url }}uploads/{{tre.image}}"/>
+	 <h3>{{tre.name}}</h3>
+	 <p>{{tre.description|safe}}</p>
+	</div>
+	</a>
+    {% endfor %}
+	</div>
+	</div>
+	</div>
+ </div>
+</div>
+</section>
+<section class="comment-section">
+<div class="container">
+	<div class="row">
+      <div class="col-xs-12 padd-none">
+         <div class="reresult" id="reresult"></div>
+          <form class="form-horizontal" action="" method="post">
+		   {% csrf_token %}
+            <p class="leave-reply">Leave a Reply</p>
+			<div class="required-fields">
+			 <p>Your email address will not be published. Required fields are marked *</p>
+            </div>
+            <div class="form-field">
+			 <input type="hidden" id="recourse_id" class="recourse_id" name="" value="{{pro.id}}" />
+             <input id="name" name="name" type="text" placeholder="Your name" class="rename input-field" required/>
+            </div>
+            <div class="form-field">
+             <input id="email" name="email" type="text" placeholder="Your email" class="reemail input-field" required />
+            </div>
+            <div class="form-field">
+             <textarea class="rediscription" id="message" name="discription" placeholder="Message..." rows="5" required></textarea>
+            </div>
+            <div class="comment-submit-btn">
+             <input type="button" class="btn btn-primary btn-lg" id="reviwesub" name="Send" value="Send" />
+            </div>
+           </form>
+			<script type="text/javascript">
+		$(document).ready(function(e) {
+			$("#reviwesub").click(function()
+			{
+				var course_id=$(".recourse_id").val();
+				var name=$(".rename").val();
+				var email=$(".reemail").val();
+				var discription=$(".rediscription").val();
+				$.ajax({
+					type: "POST",
+					url: "../savereviewfront/",
+					data: {
+						course_id:course_id,
+						name:name,
+						email:email,
+						discription:discription,
+						csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+					},
+					cache: false,
+					success: function(html){
+						$('input[name=name]').val('');
+						$('input[name=email]').val('');
+						$('input[type=text], textarea').val('');
+						$("#reresult").html(html);
+						$("#reresult").slideUp(000, function()
+						{
+
+							$("#reresult").fadeIn(000);
+							$("#reresult").hide(2000);
+						})
+						$(this).data("#reresult").remove();
+					}
+				});
+			});
+		});
+	  </script>
+      </div>
+	</div>
+</div>
+</section>
+{% endfor %}
+ <section class="">
+  <div class="container">
+  <div class="row">
+   <div class="col-xs-12 padd-none">
+   <div class="related-courses">
+    <h3>RELATED COURSE</h3>
+    <img src="{% static '' %}image/strip-img.jpg" alt="strip" /></div></div>
+    <div class="col-xs-12 padd-none">
+      {% for rel  in related %}
+	  <div class="col-md-4 col-sm-6 col-xs-12">
+	   <div class="view-related-course">
+	   <div class="related-course-img"><img src="../{{ media_url }}uploads/{{rel.image}}" alt="Mindcreature Course" /></div>
+	   <h3>{{rel.name}}</h3>
+	   {{rel.description|safe}}
+	   <span class="enrol">Enrolled</span><span class="rate">${{rel.price}}</span>
+	   <div class="learn-btn"><a href="../course/{{rel.url}}" class="more">BUY NOW</a></div>
+	   </div>
+	  </div>
+	 {% endfor %}
+    </div>
+	</div>
+   </div>
+ </section>
+{% include "footer.html" %}

@@ -1,0 +1,130 @@
+{% include "header.html" %}
+	 <!-- banner  -->
+	 <section class="cooprate-banner">
+	 <h1>Corporate Training</h1>
+      <div class="cooperate-form">
+			{% if messages %}
+			<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+			<form action="{% url 'Savecorporate-training' %}" method="POST">
+		    {% csrf_token %}
+			<div class="input-field">
+			<label>Name</label>
+			<input type="text" name="name" class="coptatrrrr" placeholder="" required="">
+			</div>
+			<div class="input-field">
+			<label>Email</label>
+			<input type="email" name="email" class="email coptatrrrr"  placeholder="" required=""/>
+			</div>
+			<div class="input-field">
+			<label>Company</label>
+			<input type="text" name="company" class="password coptatrrrr" placeholder="" required=""/>
+			</div>
+			<div class="input-field">
+			 <label>Phone</label>
+			 <input type="text" name="phone" class="password coptatrrrr"  placeholder="" required=""/>
+			</div>
+            <div class="cooperate-select">
+			 <label>Categories</label>
+			 <select class="carprimary_role" name="categorie" id="categorise">
+			 <option value="Select course" selected="">Select Categories</option>
+			 {% for cat in categorieslisting %}
+             <option value="{{cat.id}}">{{cat.name}}</option>
+		     {% endfor %}
+		     </select>
+			 </div>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$('#categorise').on('change',function(){
+						var categorisename = $(this).val();
+						if(categorisename){
+							$.ajax({
+								type:'POST',
+								url:'../select_coures_ajax/',
+								data: {
+								categorisename:categorisename,
+								csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+								 },
+								cache: false,
+								success:function(html){
+									$('#course').html(html);
+								}
+							});
+						}else{
+							$('#course').html('<option value="">Select Categories First</option>');
+
+						}
+					});
+				});
+				</script>
+				<div class="cooperate-select">
+				<label>Course</label>
+				<select class="carprimary_role" name="course_id" id="course">
+				 <option value="Select course" selected="">Select Categories First</option>
+				</select>
+				</div>
+				<div class="cooperate-select">
+				<label>Primary Role</label>
+				<select class="carprimary_role" name="primary_role" id="">
+				 <option value="Select course" selected="">Primary Role</option>
+				 <option value="CA Partner">CA Partner</option>
+				 <option value="Finance">Finance</option>
+				 <option value="IT-Operations">IT-Operations</option>
+				</select>
+				</div>
+                <div class="cooperate-select">
+				 <label>Select Mode</label>
+				 <select class="carprimary_role"  name="mode"  id="">
+                  <option value="Select " selected="">Select Mode</option>
+                  <option value="online">ONlINE</option>
+                  <option value="ofline">OFlINE</option>
+                 </select>
+			    </div>
+				<div class="cooperate-textarea">
+                 <label>Message</label>
+				 <textarea name="message" rows="10"></textarea>
+				</div>
+				<div class="cooperate-btn">
+				 <input class="register" type="submit" value="Send" />
+                </div>
+			</form>
+    </div>
+    </section>
+	<section class="partner-with-us">
+	<div class="container">
+	<div class="row">
+	<div class="col-xs-12 padd-none">
+	 <div class="why-partner">
+	  <h3>WHY PARTNER WITH US</h3>
+	 </div>
+	 <div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+	  <div class="learn-from-our-experts">
+	   <i class="fa fa-cogs"></i>
+	   <h3>LEARN FROM OUR EXPERTS</h3>
+	   <p>We provide you all type of help to clear your queries. We just not only provide you video lecture. If you have any problem then by even video conferencing we will make you clear all </p>
+	  </div>
+	 </div>
+	 <div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+	 <div class="learn-from-our-experts">
+	 <i class="fa fa-cogs"></i>
+	 <h3>COMPLETE HANDS ON</h3>
+	 <p>After learning from our team you will definitely able to work on live projects. Because our mentors are industry expert. And they know how your mind have to move towards company working with coding.</p>
+	 </div>
+	</div>
+	<div class="why-training-important">
+	<h3>WHY TRAINING IS IMPORTANT</h3>
+	<p>If you think hiring someone, training them and having them leave is expensive,try hiring them, not training them and having them stay.
+	</p>
+	<p>
+	Training your employee is key to keeping your employees skills relevant as per changing technology landscape. It also plays key role in keeping them motivated. Our training programs are specially designed that, they cause minimum interference with your employee's regular work.
+	</p>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
+{% include "footer.html" %}

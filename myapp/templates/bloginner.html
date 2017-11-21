@@ -1,0 +1,91 @@
+{% include "header.html" %}
+{% for blog in blog_list %}
+   <div class="col-xs-12 padd-none">
+   <div class="top-strip">
+   <h1>BLOG/ PYTHON</h1></div></div>
+   <section class="view-single-post">
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-12 padd-none">
+	<div class="col-md-9 col-sm-6 col-xs-12 padd-none">
+	 <div class="blog-inner-img">
+	  <img src="../{{ media_url }}uploads/{{blog.image}}" alt="Mindcreature Blog" class="img-responsive" />
+	 </div>
+	 <div class="discreption">
+	 <h2>{{blog.title}}</h2>
+	 <h5>{{blog.date}}</h5>
+    {{blog.discription|safe}}
+	 </div>
+	</div>
+	<div class="col-md-3 col-sm-6 col-xs-12 padd-none">
+	<div class="blog-sidebar">
+	<h2>Recent Posts</h2>
+	{% for abc in side_blog %}
+		<a href="../blog/{{abc.url}}">
+	<div class="blog-recent-posts">
+	 <img src="../{{ media_url }}uploads/{{abc.image}}">
+	 <h3>{{abc.title}}</h3>
+	 <p>
+		{{abc.discription|safe|slice:":255"}}
+	 </p>
+	</div>
+	</a>
+    {% endfor %}
+	</div>
+	</div>
+	</div>
+	</div>
+ </div>
+ </section>
+ <section>
+ <div class="container">
+	<div class="row">
+      <div class="col-xs-12">
+        <div class="welll well-sm">
+          <!--<form class="form-horizontal" action="" method="post">-->
+          <!--<fieldset>-->
+            <!--<legend class="text-comnt">Leave a Reply</legend>-->
+			<!--<span class="brdr"></span>-->
+			<!--<div class="yur">-->
+			<!--<p>Your email address will not be published. Required fields are marked *</p>-->
+    <!--</div>-->
+            <!--&lt;!&ndash; Name input&ndash;&gt;-->
+            <!--<div class="form-group">-->
+            <!---->
+              <!--<div class="col-md-9">-->
+			  <!---->
+                <!--<input id="name" name="name" type="text" placeholder="Your name" class="form-control conts-reviw" required>-->
+              <!--</div>-->
+            <!--</div>-->
+    <!---->
+            <!--&lt;!&ndash; Email input&ndash;&gt;-->
+            <!--<div class="form-group">-->
+            <!---->
+              <!--<div class="col-md-9">-->
+                <!--<input id="email" name="email" type="text" placeholder="Your email" class="form-control conts-reviw" required>-->
+              <!--</div>-->
+            <!--</div>-->
+    <!---->
+            <!--&lt;!&ndash; Message body &ndash;&gt;-->
+            <!--<div class="form-group">-->
+           <!---->
+              <!--<div class="col-md-9">-->
+                <!--<textarea class="form-control conts-reviw" id="message" name="message" placeholder="Message..." rows="5" required></textarea>-->
+              <!--</div>-->
+            <!--</div>-->
+    <!---->
+            <!--&lt;!&ndash; Form actions &ndash;&gt;-->
+            <!--<div class="form-group">-->
+              <!--<div class="col-md-12">-->
+                <!--<button type="submit" class="btn btn-primary btn-lg btnnnn-sub">Send</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</fieldset>-->
+          <!--</form>-->
+        </div>
+      </div>
+	</div>
+</div>
+</section>
+{% endfor %}
+{% include "footer.html" %}

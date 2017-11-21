@@ -1,0 +1,44 @@
+{% include "header.html" %}
+{% load static %}
+
+<div class="user-form-outer">
+		<div class="user-form-container">
+		  <div class="mindcreature-user">
+			<div class="user-form">
+				<h3>Login Now</h3>
+					<form action="{% url 'login' %}" method="post">
+						 {% csrf_token %}
+						<input placeholder="USERNAME" name="username" class="user-field" type="text" required=""/>
+						<span class="icons i1"></span>
+						<input placeholder="PASSWORD" name="password" class="user-field" type="password" required=""/>
+						<span class="icons i2"></span>
+						<input type="submit" value="Login" name="login"/>
+					</form>
+					<h6><a href="../password_reset">Forgot Password?</a></h6>
+					<h3>(or)</h3>
+					<div class="social_icons agileinfo">
+						<ul class="top-links">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+			</div>
+			<div class="user-form">
+				<h3>Register Now</h3>
+					<form action="{% url 'signup' %}" method="POST">
+				     {% csrf_token %}
+						<input placeholder="USER NAME" class="name-all user-field" name="username" type="text" required="">
+						<input placeholder="FIRST NAME" class="user-field" name="first_name" type="text" required="">
+						<input placeholder="LAST NAME" class="user-field" name="last_name" type="text" required="">
+						<input placeholder="E-MAIL" class="user-field" name="email" type="email" required="">
+						<input placeholder="PASSWORD" class="user-field" name="password1" type="password" required="">
+						<input placeholder="CONFIRM PASSWORD" class="user-field" name="password2" type="password" required="">
+						<input type="submit" value="Register" name="register">
+					</form>
+			</div>
+		</div>
+	 </div>
+   </div>
+{% include "footer.html" %}

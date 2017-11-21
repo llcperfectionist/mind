@@ -1,0 +1,26 @@
+{% include "header.html" %}
+<section class="free-resources">
+	<div class="container">		
+		<div class="row">
+		  <div class="col-xs-12 padd-none">
+				<h1>YES, I WANT TO BOOST MY CAREER &amp; INCREASE MY SALARY!</h1>
+                  {% if messages %}
+				  <ul class="messages">
+				  {% for message in messages %}
+				  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				  {% endfor %}
+				  </ul>
+				  {% endif %}
+				<form action="{% url 'savefree_resources'  %}" method="POST" class="agileits_w3layouts_form">
+                 {% csrf_token %}
+				 <input type="text" class="resource-form-field" name="name" placeholder="User Name" required />
+				 <input type="email" class="resource-form-field" name="email" placeholder="Email Address" required />
+				 <input type="text"  class="resource-form-field" name="phone" placeholder="Mobile" required />
+				 <textarea placeholder="Message" name="message" class="form-controll"></textarea>
+				 <input type="submit" value="SIGN UP" />
+				</form>
+		  </div>
+		</div>
+	</div>
+</section>
+ {% include "footer.html" %}

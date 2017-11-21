@@ -1,0 +1,64 @@
+
+ {% include "mindcreature-admin/header.html" %}
+ <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+  selector: 'textarea',
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  content_css: '//www.tinymce.com/css/codepen.min.css'
+});
+</script>
+      <!--main content start-->
+      <section id="main-content">
+         <div class="wrapper">
+			<div class="col-xs-12 padd-none">
+				<h3 class="page-header"><i class="fa fa-laptop"></i>Edit Teacher</h3>
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home"></i><a href="../mind">Home</a></li>
+					<li><i class="fa fa-laptop"></i>Edit Teacher</li>
+				</ol>
+			</div>
+
+	     <section class="admin-addCategory-content">
+		  <div class="col-xs-12 padd-none">
+		   <div class="admin-addCategory-content-inner">
+			<div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+             {% for s in teacher_data_id %}
+            <form action="{% url  "saveeditteacher" %}" method="POST" enctype="multipart/form-data" >
+				{% csrf_token %}
+			 <div class="form-group">
+			  <label>Name</label>
+               <input type="hidden" name="id"  value="{{s.id}}"/>
+			  <input type="text" name="name"  value="{{s.name}}" placeholder="Name"/>
+			 </div>
+
+              <div class="form-group">
+			  <label>Image</label>
+
+			  <input type="file" name="image" value="{{s.image}}" />
+              </div>
+
+             <div class="form-group">
+			 <label>About Teacher </label>
+				 <textarea  name="about">{{s.about}}</textarea>
+			 </div>
+
+			 <div class="btn-group">
+			  <input type="submit" value="Submit" />
+			 </div>
+			</form>
+                {% endfor %}
+		   </div>
+		   </div>
+		 </div>
+	    </section>
+	  </div>
+      </section>
+      <!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

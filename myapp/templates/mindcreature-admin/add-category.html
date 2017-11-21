@@ -1,0 +1,43 @@
+
+{% include "mindcreature-admin/header.html" %}
+<!--main content start-->
+<section id="main-content">
+	<div class="wrapper">
+		<div class="col-xs-12 padd-none">
+			<h3 class="page-header"><i class="fa fa-laptop"></i>Add Category</h3>
+			<ol class="breadcrumb">
+				<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+				<li><i class="fa fa-laptop"></i>Add Category</li>
+			</ol>
+		</div>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<section class="admin-addCategory-content">
+			<div class="col-xs-12 padd-none">
+				<div class="admin-addCategory-content-inner">
+					<div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+
+						<form action="{% url "savecategories" %}" method="POST" >
+						{% csrf_token %}
+						<div class="form-group">
+							<label>Category Name</label>
+							<input type="text" name="name" placeholder="Category Name"/>
+						</div>
+
+						<div class="btn-group">
+							<input type="submit" value="Submit" />
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+<!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

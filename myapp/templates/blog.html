@@ -1,0 +1,35 @@
+{% include "header.html" %}
+{% load static %}
+ <section>
+   <div class="top-strip" >
+   <h1>Blog</h1>
+       </div>
+     <div class="col-xs-12 padd-none">
+	   <div class="container">
+	   <div class="row">
+	   <div class="col-xs-12 padd-none">
+		<div class="latest">
+		 {% for blog in blog_list %}
+		  <div class="col-md-6 col-sm-6 col-xs-12 ">
+		  <div class="mindcreature-all-blogs">
+		   <div class="col-md-5 col-sm-6 col-xs-12 padd-none">
+		   <img src="../{{ media_url }}uploads/{{blog.image}}" alt="blog-6-240x240" class="img-responsive">
+		   </div>
+		   <div class="col-md-7 col-sm-6 col-xs-12 ">
+		   <div class="blog-content">
+		    <h4>{{blog.title}}</h4>
+		    <p>{{blog.date}}</p>
+			{{blog.discription|safe|slice:":190"}}
+		    <p><a href="../blog/{{blog.url}}" class="text-lrn">Keep Reading</a></p>
+		   </div>
+		   </div>
+		  </div>
+		  </div>
+		 {% endfor %}
+		 </div>
+		 </div>
+	  </div>
+    </div>
+   </div>
+  </section>
+	 {% include "footer.html" %}

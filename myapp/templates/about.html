@@ -1,0 +1,135 @@
+{% include "header.html" %}
+{% load static %}
+<!-- banner  -->
+   <section class="col-xs-12 padd-none">
+    <div class="top-strip">
+     <h1>ABOUT US</h1></div>
+	 </section>
+	 <section>
+		<div class="container">
+		 <div class="row">
+		 <div class="About">
+		  <h2>OUR STORY</h2>
+		   <img src="{% static '' %}image/strip-img.jpg" alt="Our Story" />
+		 </div>
+		<div class="about-story">
+		 <div class="col-md-6 padd-none">
+		  <div class="about-content">
+		    <h3>WHY WE ARE BEST IN ONLINE TRAINING</h3>
+			<p>We are World’s top most popular Online Training provider. Our team provide online 
+			classes in Discipline such as Machine Learning, Python, MATLAB, Big Data, Cloud Computing,
+			Search Engine Optimization (SEO), and Digital Marketing and many more. Now technologies are
+			changing rapidly and demand for well-trained, well-qualified professionals to compete the requirements
+			of Industry. We are Indian based Online training provider under the Artificial Intelligence Company 
+			AKA Webtunix Solutions Private Limited. We have helped over the 65000 Candidates and professionals and 60+
+			IT Based Comapnies from different Countries. MindCreature provides unique and flexible way to learn at your 
+			own location and time, which can be comfortable for you. So, you can start your training after your College or 
+			Institution timings. Our Courses are designed by Industry professionals who are monitoring the IT requirements, 
+			changes in IT Industry, so that we can provide you the training according to your expectations and Industry need.</p>
+		   </div>
+		 </div>
+		<div class="col-md-6">
+		<div class="about-img">
+		 <img src="{% static '' %}image/about.jpg" alt="about" class="img-responsive"/>
+		</div>
+		</div>
+		<div class="col-xs-12 padd-none"><p class="mindcreature-text">
+		MindCreature is India’s most popular online training Platform 
+		that helps to Students and professionals to boost their Career.
+		We have collaborations with Several companies and individuals to identify the requirements, 
+		and providing training to students and professionals to achieve their goals.
+		</p></div>
+		</div>
+     </div>		
+   </div>
+  </section>
+  <section class="about-us-banner">
+	   <div class="our-story">
+	    <div class="col-md-6 padd-none">
+		 <div class="about-mindcreature">
+		 <h3>WHO WE ARE</h3>
+		 <p>Mind Creature is one stop organization which provides online classes all over the world. 
+		 We provide online classes in Python, Hadoop, PHP, Android, and Machine Learning and may more fields. 
+		 We have a team of expertises who are always available for the help of the students. We also provide classes 
+		 in specific topic according to the requirement of the student. Complete package for variety of courses 
+		 is also available.</p>
+		 </div>
+	    </div>
+		<div class="col-md-6 padd-none">
+		 <div class="about-mindcreature">
+		 <h3>OUR MISSION</h3>
+		 <p>Mind Creature provides professional online
+		 education system for interactive live classes. We have expertise’s
+		 who provide 24 X 7 supports for the guidance of the students. Basically we work
+		 on the Real time data analysis so that students can learn from live projects also. 
+		 We also offer flexibility in time schedule; you ca
+		 n reschedule your batch according to your comfort.We teach Conceptual methods 
+		 and make our students creator instead of just operator.</p>
+		 </div>
+		 </div>
+		 <div class="col-md-6 padd-none">
+		 <div class="about-mindcreature">
+		 <h3>OUR VISION</h3>
+		 <p>Mind Creature provides professional online
+		 education system for interactive live classes. We have expertise’s
+		 who provide 24 X 7 supports for the guidance of the students. Basically we work
+		 on the Real time data analysis so that students can learn from live projects also. 
+		 We also offer flexibility in time schedule; you ca
+		 n reschedule your batch according to your comfort.We teach Conceptual methods 
+		 and make our students creator instead of just operator.</p>
+		 </div>
+		 </div>
+		 <div class="col-md-6 padd-none">
+		 <div class="about-mindcreature">
+		 <h3>WHAT WE DO</h3>
+		 <p>Mind Creature provides professional online
+		 education system for interactive live classes. We have expertise’s
+		 who provide 24 X 7 supports for the guidance of the students. Basically we work
+		 on the Real time data analysis so that students can learn from live projects also. 
+		 We also offer flexibility in time schedule; you ca
+		 n reschedule your batch according to your comfort.We teach Conceptual methods 
+		 and make our students creator instead of just operator.</p>
+		</div>
+	 </div>
+	</div>
+	</section>
+  <!-- TEAM -->
+	<section class="team" id="team">
+		<div class="container">
+		 <div class="row">
+	      <div class="col-xs-12 padd-none">
+			<h3>Our Team</h3>
+			<div class="">
+				{% for team in team_list %}
+				<div class="col-md-3 padd-none">
+				 <div class="mindcreature-team">
+					<div class="team-img">
+						<img src="../{{ media_url }}uploads/{{team.image}}" alt="Mindcreature Team" />
+						<figcaption class="overlay">
+							<h5>Aliquam scelerisque</h5>
+							<p>sit aspernatur aut odit</p>
+							<div class="team-social-links">
+								<ul>
+									<li><a href="{{team.facebook}}"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="{{team.twitter}}"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="{{team.youtube}}"><i class="fa fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</figcaption>
+					</div>
+					<h4>{{team.name}}</h4>
+					<span>{{team.designation}}</span>
+				  </div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		</div>
+		</div>
+	</section>
+	<!-- TEAM -->
+{% include "footer.html" %}
+
+
+   
+ 

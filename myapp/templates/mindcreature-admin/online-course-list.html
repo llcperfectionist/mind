@@ -1,0 +1,81 @@
+{% include "mindcreature-admin/header.html" %}
+      <!--main content start-->
+      <section id="main-content">
+         <div class="wrapper">
+			<div class="col-xs-12 padd-none">
+				<h3 class="page-header"><i class="fa fa-laptop"></i>Coures</h3>
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+					<li><i class="fa fa-laptop"></i>Coures</li>
+				</ol>
+			</div>
+
+	{% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+	     <section class="admin-listCategory-content">
+		  <div class="col-xs-12 padd-none">
+		   <div class="admin-listCategory-content-inner">
+            <div class="col-xs-12 padd-none">
+			</div>
+			<div class="col-xs-12 padd-none">
+			 <table>
+			  <tbody>
+			   <tr>
+			    <th> Course Name</th>
+				<th>Date 1</th>
+                <th>Month 1</th>
+                <th>day 1</th>
+                <th>price 1</th>
+
+                <th>Date 2</th>
+                <th>Month 2</th>
+                <th>day 2</th>
+                <th>price 2</th>
+                <th>Date 3</th>
+                <th>Month 3</th>
+                <th>day 3</th>
+                <th>price 3</th>
+				<th>Action</th>
+			   </tr>
+			   {% if onlinecourselist %}
+			   {% for s in onlinecourselist %}
+
+
+			   <tr>
+			    <td>{{s.course_id.name}}</td>
+				<td>{{s.date1}}</td>
+                <td>{{s.month1}}</td>
+                <td>{{s.day1}}</td>
+                <td>{{s.price1}}</td>
+                   <td>{{s.date2}}</td>
+                   <td>{{s.month2}}</td>
+                   <td>{{s.day2}}</td>
+                   <td>{{s.price2}}</td>
+                      <td>{{s.date3}}</td>
+                      <td>{{s.month3}}</td>
+                      <td>{{s.day3}}</td>
+                      <td>{{s.price3}}</td>
+				<td><a href="../online-course-edit/{{s.id}}" class="btn btn-info">Edit</a>&nbsp;&nbsp;&nbsp;
+					<a href="../onlinecoursedelete/{{s.id}}" class="btn btn-info">Delete</a>
+				</td>
+			   </tr>
+			  {% endfor %}
+			  {% else %}
+                     <p>No any Course found in database.</p>
+              {% endif %}
+			  </tbody>
+			 </table>
+			</div>
+		   </div>
+		  </div>
+	    </section>
+	  </div>
+      </section>
+      <!--main content end-->
+{% include "mindcreature-admin/footer.html" %}
+

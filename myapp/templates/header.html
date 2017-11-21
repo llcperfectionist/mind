@@ -1,0 +1,144 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Webtunix Solutions Private Limited" />
+    <title>Online Training in Chandiagrh</title>
+    <link href="{% static '' %}image/favicon.png" rel="icon" type="image" />
+    <link href="{% static '' %}css/bootstrap.min.css" rel="stylesheet" />
+	<link href="{% static '' %}css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet" />
+	<script src="{% static '' %}js/jquery-1.11.0.js"></script>
+    <script src="{% static '' %}js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{% static '' %}js/move-top.js"></script>
+	<script type="text/javascript" src="{% static '' %}js/easing.js"></script>
+    <script src="{% static '' %}js/wow.min.js"></script>
+	<script>
+	$('#myCarousel').carousel({
+	  auto:true
+    })
+   </script>
+   <script type="text/javascript">
+	jQuery(document).ready(function($) {
+	 $(".scroll").click(function(event){		
+		event.preventDefault();
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+  </script>
+              <script>
+              new WOW().init();
+              </script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+		var defaults = {
+		containerID: 'toTop', // fading element id
+		containerHoverID: 'toTopHover', // fading element hover id
+		scrollSpeed: 5500,
+		easingType: 'linear' 
+		};			
+	$().UItoTop({ easingType: 'easeOutQuart' });
+  });
+ </script>
+ <script>
+		$(document).ready(function(){
+		  $('#mList A').on('click',function(e){
+			e.preventDefault();
+			var u = $(this).attr('href');
+			if($(window).width() > 800){
+			  var i = u.substring(u.search('=')+1,u.length);
+			  $('#mPlayer DIV').html('<iframe width="700" height="400" src="https://www.youtube.com/embed/' + i + '" frameborder="0" allowfullscreen></iframe>');
+              $('#mPlayer').fadeIn(500);
+			}else{
+			  window.location.href = u;
+			}
+		  }); 
+		  $('#mPlayer').on('click',function(e){
+			$('#mPlayer').fadeOut(500);
+			$('#mPlayer DIV').empty();
+		  });
+		});
+	</script>
+	<script src="{% static '' %}js/particles.min.js"></script>
+	<script>
+	function init() {
+	  window.onload = function() {
+		Particles.init({
+		  selector: '#myCanvasss',
+		  color: '#f9f9f9',
+		  connectParticles: true,
+		  minDistance: 90
+		});
+	  };
+	}
+</script>
+</head>
+<body>
+<div class="main-outer">
+<header>
+   <div class="top-header">
+   <div class="container">
+   <div class="col-md-6 col-sm-6 col-xs-12 text-left"></div>
+   <div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+   <div class="social-media">
+    {% if request.user.is_authenticated %}
+	<a href="../logout?next"  class="top-sign-in-button hidden-xs" >Sign out</a>
+	{% else %}
+    <a href="../login-form">Login / Sign Up</a>
+	 {% endif %}
+
+   </div>
+     </div>
+     </div>
+    </div>
+	<div class="main-header">
+	<div class="container">
+	  <div class="row">
+	     <div class="col-md-3 col-sm-3 col-xs-5 padd-none">
+		    <div class="logo">
+			<a href="../"><img src="{% static '' %}image/logo.png" alt="Mindcreature"></a>
+			</div>
+		 </div>
+		 <div class="col-md-9 col-sm-9 col-xs-7 padd-none">
+		   <nav class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="../about-us">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="../courses">COURSE</a>
+                    </li>
+                    <li>
+                        <a href="../corporate-training">CORPORATE TRAINING</a>
+                    </li>
+					<li>
+                        <a href="../customer-reviews">REVIEWS</a>
+                    </li>
+					<li>
+                        <a href="../free-resources">FREE RESOURCES</a>
+                    </li>
+					
+                </ul>
+            </div>        
+       </nav>
+	  </div>	
+	</div>
+	</div>
+	</div>
+</header>

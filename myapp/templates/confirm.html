@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+ <head>
+  <title>Welcome to Mindcreature</title>
+  <link rel="stylesheet" href="{% static '' %}css/style.css" type="text/css">
+  <link rel="stylesheet" href="{% static '' %}css/bootstrap.min.css"/>
+ </head>
+ <body>
+   <div class="main-outer back-rest-color">
+   <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    		{% block content %}
+            {% if validlink %}
+            <form role="form" class="sign_up_form" method="post">
+    			<h2 class="sign_up_title">Reset password</h2>
+    			{% csrf_token %}
+                {{ form.as_p }}
+    			 <input type="submit" class="rest-bck-clr" name="SUBMIT"/>
+    		</form>
+             {% else %}
+    <p>
+      The password reset link was invalid, possibly because it has already been used.
+      Please request a new password reset.
+    </p>
+  {% endif %}
+{% endblock %}
+
+    	</div>
+    </div>
+</div>
+</div>
+</body>
+</html>

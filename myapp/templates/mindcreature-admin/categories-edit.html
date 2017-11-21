@@ -1,0 +1,39 @@
+
+{% include "mindcreature-admin/header.html" %}
+<!--main content start-->
+<section id="main-content">
+	<div class="wrapper">
+		<div class="col-xs-12 padd-none">
+			<h3 class="page-header"><i class="fa fa-laptop"></i>Edit Category</h3>
+			<ol class="breadcrumb">
+				<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+				<li><i class="fa fa-laptop"></i>Edit Category</li>
+			</ol>
+		</div>
+
+		<section class="admin-addCategory-content">
+			<div class="col-xs-12 padd-none">
+				<div class="admin-addCategory-content-inner">
+					<div class="col-md-6 col-sm-6 col-xs-12 padd-none">
+						{% for s in categories_editing %}
+						<form action="{% url "saveeditcategories" %}" method="POST" >
+						{% csrf_token %}
+						<div class="form-group">
+							<label>Category Name</label>
+							<input type="hidden" name="id" value="{{s.id}}"/>
+							<input type="text" name="name" value="{{s.name}}" placeholder="Category Name"/>
+						</div>
+
+						<div class="btn-group">
+							<input type="submit" value="Submit" />
+						</div>
+						</form>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+<!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

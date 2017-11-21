@@ -1,0 +1,179 @@
+
+ {% include "mindcreature-admin/header.html" %}
+ <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+  selector: 'textarea',
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  content_css: '//www.tinymce.com/css/codepen.min.css'
+});
+</script>
+      <!--main content start-->
+      <section id="main-content">
+         <div class="wrapper">
+			<div class="col-xs-12 padd-none">
+				<h3 class="page-header"><i class="fa fa-laptop"></i>Edit Course</h3>
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home"></i><a href="../mind">Home</a></li>
+					<li><i class="fa fa-laptop"></i>Edit Course</li>
+				</ol>
+			</div>
+
+	     <section class="admin-addCategory-content">
+		  <div class="col-xs-12 padd-none">
+		   <div class="admin-addCategory-content-inner">
+
+
+                 {% for s in course_data_id %}
+            <form action="{% url "editcourse" %}" method="POST" enctype="multipart/form-data" >
+				{% csrf_token %}
+			 <div class="form-group">
+			  <label> Name</label>
+              <input type="hidden" name="id" value="{{s.id}}"/>
+			  <input type="text" name="name" value="{{s.name}}" />
+			 </div>
+
+              <div class="form-group">
+			  <label> Url</label>
+              <input type="text" name="url" value="{{s.url}}" />
+			   </div>
+
+
+              <div class="form-group">
+			  <label>Description</label>
+			  <textarea  name="description" >{{s.description}}</textarea>
+			  </div>
+
+              <div class="form-group">
+			  <label>Price</label>
+			  <input type="text" name="price" value="{{s.price}}" />
+               </div>
+
+              <div class="col-md-6">
+              <div class="form-group">
+			  <label>Image</label>
+			  <input type="file" name="image"  value="{{s.image}}" />
+              </div>
+              </div>
+
+
+             <div class="col-md-6">
+             <div class="form-group">
+			 <label>Video link</label>
+			 <input type="text" name="video_link" value="{{s.video_link}}" />
+             </div>
+             </div>
+
+
+             <div class="col-md-6" style="float: right">
+             <div class="form-group">
+			 <label>Techers</label>
+                 <select name="teacher">
+                     <option value="{{s.teacher.id}}" selected="selected">{{s.teacher.name}}</option>
+                     {% for a in teacherlist %}
+                     <option value="{{a.id}}">{{a.name}}</option>
+                     {% endfor %}
+                 </select>
+			 </div>
+             </div>
+
+           <div class="col-md-6 ">
+           <div class="form-group">
+			 <label>Category</label>
+                 <select name="categorie">
+                  <option value="{{s.categorie.id}}" selected="selected">{{s.categorie.name}}</option>
+                    {% for s in categorieslisting %}
+                     <option value="{{s.id}}">{{s.name}}</option>
+                     {% endfor %}
+                 </select>
+			 </div>
+             </div>
+
+             <div class="form-group">
+			 <label>Brief Description</label>
+                 <textarea name="brief_description" id="" >{{s.brief_description}}</textarea>
+			 </div>
+
+             <div class="form-group">
+			 <label>Certification</label>
+             <input type="text" name="certification" value="{{s.certification}}" />
+			 </div>
+
+             <div class="form-group">
+			 <label>Curriculum</label>
+                 <textarea name="curricalum" id="" >{{s.curricalum}}</textarea>
+			 </div>
+
+
+             <div class="form-group">
+			 <label>Assign time</label>
+             <input type="text" name="course_assign_time" value="{{s.course_assign_time}}" />
+			 </div>
+
+             <div class="form-group">
+			 <label>Assign Description</label>
+             <textarea name="course_assign_description" id="" >{{s.course_assign_description}}</textarea>
+			 </div>
+
+             <div class="form-group">
+			 <label>Project time</label>
+             <input type="text" name="project_time" value="{{s.project_time}}" />
+			 </div>
+
+             <div class="form-group">
+			 <label>Project Description</label>
+             <textarea name="project_description" id="" >{{s.project_description}}</textarea>
+			 </div>
+
+              <div class="form-group">
+			 <label>Lifetime access </label>
+             <textarea name="life_time_access" id="" >{{s.life_time_access}}</textarea>
+			 </div>
+
+
+             <div class="form-group">
+			 <label>24 X Support </label>
+             <textarea name="support" id="" >{{s.support}}</textarea>
+			 </div>
+
+              <div class="form-group">
+			 <label>Get Certified </label>
+             <textarea name="get_certified" id="" >{{s.get_certified}}</textarea>
+			 </div>
+
+
+            <div class="col-md-12 text-left">
+
+
+			 <label style="width:116px">Trending Course </label>
+             <input style="width:43px" type="checkbox" name="trending" value="1">
+
+
+
+			 <label style="width:100px">Poplar Course </label>
+             <input style="width:43px" type="checkbox" name="popular" value="1">
+
+
+             </div>
+                <br>
+
+
+			 <div class="btn-group">
+			  <input type="submit" value="Submit" />
+			 </div>
+			</form>
+
+            {% endfor %}
+		   </div>
+		 </div>
+	    </section>
+	  </div>
+      </section>
+      <!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

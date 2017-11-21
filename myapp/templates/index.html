@@ -1,0 +1,306 @@
+{% include "header.html" %}
+{% load static %}
+	 <!-- banner  -->
+	 <section>
+	<div class="container-fluid">
+        <div class="row">
+        	<div class="col-xs-12 padd-none">
+         <!-- Start cssSlider.com -->
+	     <div class='csslider1 autoplay '>
+			<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
+			<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
+			<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
+			<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
+			<input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor' >
+			<ul>
+				<div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+					<img src="{% static '' %}image/slider1.jpg" style="width: 100%;" />
+				</div>
+				<li class="num0 img">
+					 <img src="{% static '' %}image/slider1.jpg" alt='Mindcreature Slide' title='' />
+				</li>
+				<li class="num1 img">
+					<img src="{% static '' %}image/slider2.jpg" alt='Mindcreature Slide' title='' />
+				</li>
+				<li class="num2 img">
+					<img src="{% static '' %}image/slider3.jpg" alt='Mindcreature Slide' title='' />
+				</li>
+			</ul>
+			<div class='cs_arrowprev'>
+				<label class="num0" for="cs_slide1_0"></label>
+				<label class="num1" for="cs_slide1_1"></label>
+				<label class="num2" for="cs_slide1_2"></label>
+			</div>
+			<div class='cs_arrownext'>
+				<label class="num0" for="cs_slide1_0"></label>
+				<label class="num1" for="cs_slide1_1"></label>
+				<label class="num2" for="cs_slide1_2"></label>
+			</div>
+			</div>
+			<!-- End cssSlider.com -->
+			  <div class="we-are">
+				<h1>Education For Everyone</h1>        
+				<form action="{% url 'search' %}" method="GET	" id="custom-search-form" class="form-search form-horizontal">
+					<div class="input-append span12">
+						<input type="text" name="q" class="search-query mac-style course-search" placeholder="Search" />
+						<button type="submit" class="btn"><i class="fa fa-search icn-srch" aria-hidden="true"></i></button>
+					</div>
+				</form>
+             </div>
+            </div>
+        </div>
+    </div>
+	</section>
+   <!-- BANNER -->
+   <section class="whyimg">
+    <div class="container">
+     <div class="row">
+      <div class="why wow">
+       <h2>Why Mindcreature</h2>
+		 <p>MindCreature is India’s most popular online training Platform
+		that helps to Students and professionals to boost their Career. We have
+		collaborations with Several
+		companies and individuals to identify the requirements, and providing training to
+		students and professionals to achieve their goals.</p>
+		<a href="../about-us" class="bttn-lrn">Learn More</a>
+	  </div>
+	 </div>
+     </div>
+   </section>
+    <section class="popular-courses wow">
+	<div class="container">
+	  <div class="row">
+      <div class="col-xs-12 padd-none">
+       <h2>POPULAR COURSES</h2>
+       <div class="text-center"><img src="{% static '' %}image/strip-img.jpg" alt="strip" class="strip-img"/></div>
+      </div>
+	  <div class="col-xs-12 padd-none">
+		{% for a in popular %}
+		<div class="col-md-3 col-sm-4 col-xs-12 padd-none">
+		 <div class="popular-course">
+		  <a href="../course/{{a.url}}">
+		  <div class="popular-course-img"><img src="{{ media_url }}uploads/{{a.image}}" alt="Mindcreature" class="img-responsive" /></div>
+		  <h3>{{a.name}}</h3>
+		  {{a.description|safe}}
+		  <span class="enrol">Enrolled</span><span class="rate">${{a.price}}</span>
+		  <div class="learn-btn"><p class="more">BUY NOW</p></div>
+		 </a>
+		 </div>
+		</div>
+	   {% endfor %}
+       <div class="browse-courses"><a href="../courses" class="bro">Browse All Courses</a></div>
+	   </div>
+     </div>
+     </div>
+  </section>
+  <!-- IMPORTANT FACTS -->
+  <section class="stats important-facts" id="stats">
+	<div class="container">
+	 <div class="row">
+	   <div class="col-xs-12 padd-none">
+         <h2>IMPORTANT FACTS</h2>
+         <img src="{% static '' %}image/strp1.png" alt="strip"/>
+	   <div class="col-xs-12 padd-none">
+		<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+		   <i class="fa fa-laptop" aria-hidden="true"></i>
+			<p class="counter">45</p>
+			<h3>Courses</h3>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+		    <i class="fa fa-smile-o" aria-hidden="true"></i>
+			<p class="counter">165</p>
+			<h3>Members</h3>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+		<i class="fa fa-trophy" aria-hidden="true"></i>
+			<p class="counter">563</p>
+			<h3>Awards</h3>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+		<i class="fa fa-user" aria-hidden="true"></i>
+			<p class="counter">245</p>
+			<h3>Instructors</h3>
+		</div>
+	  </div>
+	  </div>
+	  </div>
+    </div>
+   </section>
+    <!-- IMPORTANT FACTS --> 
+	<!-- BLOG --> 
+	 <section>
+	   <div class="mindcreature-blog-home">
+	     <div class="container">
+	      <div class="row">
+	       <div class="col-xs-12 padd-none">
+	        <div class="text-center">
+              <h2>BLOG</h2>
+              <img src="{% static '' %}image/strip-img.jpg" alt="strip" class="strip-img"/>
+            </div>
+			<div class="col-xs-12 padd-none">
+			{% for blog in side_blog %}
+			 <div class="col-md-6 col-sm-6 col-xs-12">
+			  <div class="latest-posts">
+			   <div class="col-md-5 col-sm-6 col-xs-12 padd-none">
+			    <img src="{{ media_url }}uploads/{{blog.image}}" alt="blog-6-240x240" class="img-responsive" />
+			   </div>
+			   <div class="col-md-7 col-sm-6 col-xs-12 ">
+				<div class="blog-text">
+				 <h4>{{blog.title}}</h4>
+				 <p>{{blog.date}}</p>
+				 {{blog.discription|safe|slice:":115"}}
+				 <p><a href="../blog/{{blog.url}}" class="text-lrn">Learn More</a></p>
+				</div>
+			   </div>
+			  </div>
+			 </div>
+			 {% endfor %}
+			</div>
+		 </div>
+		</div>
+      </div>
+	 </div>
+	 </section>
+	 <!-- BLOG --> 
+	 <!-- TESTIMONIAL -->
+	 <section class="wrapper back-testimonial">
+               <div class="container">
+                <div class="row">
+                    <div class="col-xs-12" data-wow-delay="0.2s">
+                        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                            <!-- Bottom Carousel Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="{% static '' %}image/t1.jpg" alt="Mindcreature">
+                                </li>
+                                <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="{% static '' %}image/t2.jpg" alt="Mindcreature">
+                                </li>
+                                <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="{% static '' %}image/t3.jpg" alt="Mindcreature">
+                                </li>
+                            </ol>
+                            <!-- Carousel Slides / Quotes -->
+                            <div class="carousel-inner text-center">
+                                <!-- Quote 1 -->
+                                <div class="item active">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+                                                <p class="testimonial-content">
+                                                    I participated in the online Python Course, the mind creature team introduced programing in a very easy way that helped me in clearing the basics. I found every aspect of this course -the open source textbook, lectures, assignments and supportive learning community encouraging, helpful and fun.  </p>
+                                                <small class="someone">Sarita</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- Quote 2 -->
+                                <div class="item">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+                                                <p class="testimonial-content">
+                                                    The lectures were extra-ordinary, well organised, thoughtful and clear. I found the assignments interesting and relevant. After completing Machine Learning Online Course, I was able to clear all the concepts specially of Basic Syntax, Decision Making, Python Loops, String, Tuple, Python Functions, OOPs, Probability Theory, Neural Networks and more.  </p>
+                                                <small class="someone">Ajay</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- Quote 3 -->
+                                <div class="item">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+                                                <p class="testimonial-content">
+                                                    Everything went smoothly during the Python Django Online Training Course. The course had a lot of good and relevant information. Instructor was knowledgable, cannot think of a better online course than this one. </p>
+                                                <small class="someone">Brahmjot</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <!-- Carousel Buttons Next/Prev -->
+                            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+	 </section>
+	 <!-- TESTIMONIAL -->
+	 <!-- EVENTS -->
+	  <section class="mindcreature-events">
+		<div class="container">
+		<div class="row">
+	     <div class="col-xs-12 padd-none">
+	     <div class="our-events">
+	      <h2>OUR EVENTS</h2>
+	      <img src="{% static '' %}image/strip-img.jpg" alt="strip" class="strip-img"/>
+		 </div>
+        </div>
+		<div class="col-xs-12 padd-none">
+		<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="events">
+		 <img src="{% static '' %}image/event-3.jpg" alt="event" class="img-responsive" />
+		 <h2>Python Developer’s Conference</h2>
+		 <p>5 july 2017</p>
+		 <p>There are many variaons of passa of Lorem 
+		 Ipsuable, amrn in sofby injected humour, amr sarata din me</p>
+		</div>
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="events">
+		 <img src="{% static '' %}image/event-5.jpg" alt="event" class="img-responsive" />
+		 <h2>Python Developer’s Conference</h2>
+		 <p>5 july 2017</p>
+		 <p>There are many variaons of passa of Lorem 
+		 Ipsuable, amrn in sofby injected humour, amr sarata din me</p>
+		 </div>
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="events">
+		 <img src="{% static '' %}image/event-4.jpg" alt="event" class="img-responsive" />
+		 <h2>Matlab Developer’s Conference</h2>
+		 <p>5 july 2017</p>
+		 <p>There are many variaons of passa of Lorem 
+		 Ipsuable, amrn in sofby injected humour, amr sarata din me</p>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	  </section>
+	  <!-- EVENTS -->
+	  <!-- NEWSLETTER -->
+	   <section class="mindcreature-newsletter">
+	    <div class="container">
+	     <div class="row">
+		 <div class="col-xs-12 padd-none">
+	     <div class="col-md-6 padd-none">
+		  <h3 class="subscribe">SUBSCRIBE TO OUR NEWSLETTER</h3>
+		 </div>
+         <div class="col-md-6 padd-none">
+		  <div class="subscribe-form">
+			{% if abc %}
+			<script>alert('{{abc}}');</script>
+
+			{% endif %}
+			<form role="form" id="form-buscar" method="post" action="{% url 'subscribe' %}">
+			{% csrf_token %}
+			 <div class="form-group">
+			 <div class="input-group">
+			 <input id="" class="form-control newsletter" type="text" name="email" placeholder="Search..." required/>
+			 <input type="hidden" name="suscribes" class="footersuscribe" value="1" />
+			 <span class="input-group-btn">
+			 <button class="btn" type="submit">
+			 <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
+			 </button>
+			 </span>
+			 </div>
+			 </div>
+			</form>
+		 </div>
+		 </div>
+		</div>
+		</div>
+	   </div>
+	   </section>
+<!-- NEWSLETTER -->
+{% include "footer.html" %}

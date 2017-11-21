@@ -1,0 +1,49 @@
+{% include "mindcreature-admin/header.html" %}
+{% block content %}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+  selector: 'textarea',
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  content_css: '//www.tinymce.com/css/codepen.min.css'
+});
+</script>
+<!--main content start-->
+<section class="admin-login-outer">
+ <div class="container">	
+  <div class="row">
+   <div class="col-xs-12 padd-none">
+     <div class="admin-access-form-outer">
+	   <div class="form-logo-outer">
+	    <a href="http://www.mindcreature.com" target="_blank"><img src="{% static 'admin-1/images/header-logo.png' %}" alt="Mindcreature"/></a>
+	   </div>
+			<h2>Sign up</h2>
+			<form method="post">
+				{% csrf_token %}
+				{% for field in form %}
+				<p>
+					{{ field.label_tag }}<br>
+					{{ field }}
+					{% if field.help_text %}
+					<small style="color: grey">{{ field.help_text }}</small>
+					{% endif %}
+					{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+				{% endfor %}
+				</p>
+				{% endfor %}
+				<button type="submit">Sign up</button>
+			</form>
+           </div>
+           </div>
+         </div>
+    </div>
+</section>
+{% endblock %}
+{% include "mindcreature-admin/footer.html" %}

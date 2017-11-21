@@ -1,0 +1,247 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Mindcreature - Admin Panel</title>
+
+    <link href="{% static 'admin-1/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin-1/css/bootstrap-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin-1/css/elegant-icons-style.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin-1/css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin-1/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin-1/css/style-responsive.css' %}" rel="stylesheet" />
+	<link href="{% static 'admin-1/css/dataTables.bootstrap.min.css' %}" rel="stylesheet" />
+  </head>
+  <style type="text/css">
+     textarea{
+      height: 400px !important;
+     }
+   </style>
+
+  <body>
+  <!-- container section start -->
+  <section id="container" class="">
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+            <a href="" class="logo"><img src="{% static 'admin-1/images/header-logo.png' %}" alt="Mindcreature"/></a>
+            <div class="nav search-row" id="top_menu">
+
+            </div>
+            <div class="top-nav notification-row"> 
+                <ul class="nav pull-right top-menu">
+
+
+
+
+
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="{% static 'admin-1/images/avatar1_small.jpg' %}">
+                            </span>
+                            <span class="username">Mind</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i>My Profile</a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="../logout?next={% url 'login' %}"><i class="icon_key_alt"></i>Log Out</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li class="active">
+                      <a class="" href="index.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Admin</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">                          
+                          <li><a class="" href="../signup">Admin Singup</a></li>
+                          <li><a class="" href="../admin-list">Admin List</a></li>
+
+                      </ul>
+                  </li>
+
+                   <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Teachers</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="../teacher-add">Add Teachers</a></li>
+                          <li><a class="" href="../teacher-list">List Teachers</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Team</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="../team-add">Add Team</a></li>
+                          <li><a class="" href="../team-list">List Team</a></li>
+                      </ul>
+                  </li>
+
+
+
+				  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Categories</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="../add-categories">Add Category</a></li>
+                          <li><a class="" href="../list-categories">List Category</a></li>
+                      </ul>
+                  </li>
+
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Course</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../course-add">Add Course</a></li>
+                           <li><a class="" href="../course-list">List Course</a></li>
+						     <li><a class="" href="../video-add">Video-Add</a></li>
+                           <li><a class="" href="../online-course-list">Online Course List</a></li>
+                      </ul>
+                  </li>
+
+				  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Course Video</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../add_video">Add Video</a></li>
+                           <li><a class="" href="">List Video</a></li>
+                      </ul>
+                  </li>
+
+
+
+
+                   <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Promo Code</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../promo-code-add">Add Prome Code</a></li>
+                           <li><a class="" href="../promo-code-list">List Prome Code</a></li>
+                      </ul>
+                  </li>
+
+
+                   <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Review</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../review-add">Add Review</a></li>
+                           <li><a class="" href="../review-list">List Review</a></li>
+                      </ul>
+                  </li>
+
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>FAQ</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../faq-add">Add Faq</a></li>
+                           <li><a class="" href="../faq-list">List Faq</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>PDF</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../pdf-add">Add PDF</a></li>
+                           <li><a class="" href="../pdf-list">List PDF</a></li>
+                      </ul>
+                  </li>
+
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Blog</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li><a class="" href="../blog-add">Add blog</a></li>
+                           <li><a class="" href="../blog-list">List blog</a></li>
+                      </ul>
+                  </li>
+
+
+
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+    

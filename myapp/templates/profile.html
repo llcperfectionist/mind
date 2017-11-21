@@ -1,0 +1,546 @@
+{% include "header.html" %}
+{% load static %}
+{% for user_data in user_data %}
+<section class="mincreature-user-profile">
+   <div class="container">
+        <div class="row">
+           <div class="col-xs-12 padd-none" >
+            <h1>User Profile</h1>
+               {% for payment_data in payment_data  %}
+            <div class="col-md-8 col-sm-7 col-xs-12 padd-none">
+                <div class="user-profile-part">
+                    <img src="{% static '' %}image/profile-photo.png" alt="User" class="img-responsive">
+                    <h3>Name: {{user_data.first_name}}</h3>
+                    <p><strong>Email: {{user_data.email}}</strong> </p>
+                    <p><strong>Course: </strong>{{payment_data.item_name}}</p>
+                    <p><strong>Info: </strong></p>
+                </div>
+                <div class="col-xs-11 padd-none watch-videos">
+                     <h2>Watch Videos</h2>
+
+
+
+                {% if  payment_data.status == "Completed"  %}
+
+
+
+<!--video start-->
+
+<div class="row"  style="margin-top:20px; background:#2d3e50;">
+<div class=" well well-sm  bg-white borderZero"  uib-dropdown >
+<div class="btn-group date-block btn-group-justified font-small dropdown" data-toggle="buttons">
+<label href="#home" data-toggle="tab" class="btn btn-default  next font-small semiBold" title="Next Day" style="font-size:12px; border-radius:0;">
+<div id="mList">
+<div class="gal-item">
+<div class="box">
+<a href="#" data-toggle="modal" data-target="#">
+<img src="{% static '' %}image/pythonn.jpg">
+<div><i class="fa fa-play-circle-o ply-icn" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="2" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+
+<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+<!-- <div class="modal-body"> -->
+<!-- <video width="580" height="440" controls  controlsList="nodownload"> -->
+<!-- <source src="{% static '' %}video/mo.mp4" type="video/mp4"> -->
+<!-- </video> -->
+<!-- </div> -->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</label>
+
+<label  href="#profile" data-toggle="tab" class="btn btn-default previous  font-small semiBold" title="Previous Day" style="font-size:12px;">
+Djngo Flask
+</label>
+
+
+</div>
+
+</div>
+
+<div id="myTabContent" class="tab-content">
+<div class="tab-pane fade active in" id="home">
+<div class="col-md-12 padd-none">
+<div class="panel panel-default">
+<div class="panel-body " style="min-height: 100px; background:#000000;">
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#3">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="3" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Introduction-To-Python.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 1-Introduction To Python</h2>
+<span>21:13</span>
+</div>
+</div>
+</div>
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#4">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="4" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Introduction-to-Operators.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 2-Introduction to Operators</h2>
+<span>42:40</span>
+</div>
+</div>
+</div>
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#5">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="5" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Numbers-and-Strings.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 3-Numbers-and-Strings | Python Training</h2>
+<span>44:31</span>
+</div>
+</div>
+</div>
+
+<div class="row" style="border-bottom:1px solid #ccc;" >
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#6">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="6" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Tuples-Lists-and-Dictionary.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 4-Tuples-Lists-and-Dictionary | Python Training</h2>
+<span>48:09</span>
+</div>
+</div>
+</div>
+
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#7">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="7" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Python-Functions.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 5-Python-Functions | Python Training</h2>
+<span>15:30</span>
+</div>
+</div>
+</div>
+
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#8">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="8" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Oops-Concepts.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 6-Oops-Concepts | Python Training</h2>
+<span>22:40</span>
+</div>
+</div>
+</div>
+
+
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#9">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="9" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Modules.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 7-Modules | Python Training</h2>
+<span>22:03</span>
+</div>
+</div>
+</div>
+
+
+<div class="row" style="border-bottom:1px solid #ccc;">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#10">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="10" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/Exception.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 8-Exception | Python Training</h2>
+<span>23:41</span>
+</div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-xs-4 padd-none">
+<div class="list-video">
+<div class="col-xs-12 padd-none">
+<ul>
+<li>
+<div class="col-md-12 col-sm-12 co-xs-12 gal-item vide">
+<div class="box list-box">
+<a href="#" data-toggle="modal" data-target="#11">
+<img src="{% static '' %}image/pythonn.jpg">
+<div class="play-icn"><i class="fa fa-play-circle-o ply-icn f-crlcel" aria-hidden="true"></i></div>
+</a>
+<div class="modal fade" id="11" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<div class="modal-body">
+<video width="780" height="440" controls  controlsList="nodownload">
+<source src="{% static '' %}video/install-PyCharm-Edition-for-Windows-System.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-md-8 padd-none">
+<div class="txtey">
+<h2>Tutorial: 9-install-PyCharm-Edition-for-Windows-System</h2>
+<span>8:04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="profile">
+<p class="text-center">Passionate Fullstack Developer</p>
+</div>
+
+    </div>
+    </div>
+         <!--video end-->
+                {% endif %}
+
+
+                {% endfor %}
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-5 col-xs-12 padd-none">
+                <div class="user-profile-part details">
+                    <h3>Update Profile</h3>
+                    <form>
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" value="Amanpreet" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" value="amanpreet@gmail.com" />
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Photo:</label>
+                            <input type="file" />
+                        </div>
+                        <div class="form-group">
+                            <label>Course Name:</label>
+                            <select>
+                                <option value="Python">Python</option>
+                                <option value="Python Flask">Python Flask</option>
+                                <option value="Python Django">Python Django</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Info:</label>
+                            <textarea></textarea>
+                        </div>
+                        <div class="update-profile">
+                            <input type="submit" value="Update Profile" class="sub-btnn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+	   </div>
+</section>
+{% endfor %}
+{% include "footer.html" %}

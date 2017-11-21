@@ -1,0 +1,43 @@
+{% include "header.html" %}
+{% load static %}
+ <div class="all-courses">
+   <div class="col-xs-12 all-course top-strip padd-none">
+   <h1>ALL COURSES</h1>
+      <div class="col-xs-10 col-xs-offset-1">
+    <form action="{% url 'search' %}" method="GET" role="search">
+    <div class="input-group">
+    <input name="q" class="form-control all-serach-course" placeholder="Search . . ." name="srch-term" id="ed-srch-term" type="text">
+    <div class="input-group-btn">
+    <button type="submit" id="searchbtn" class="all-serach-course">
+    search</button>
+    </div>
+    </div>
+    </form>
+    </div>
+        </div>
+  <section class="popular-courses wow">
+  <div class="container">
+	  <div class="row">
+     <div class="col-xs-12 padd-none">
+        {% if allcourse %}
+		{% for c in allcourse %}
+	<div class="col-md-3 col-sm-4 col-xs-12 padd-none">
+	<div class="popular-course">
+	<a href="../course/{{c.url}}">
+	<img src="../{{ media_url }}uploads/{{c.image}}" alt="python" class="img-responsive" />
+	<h3>{{c.name}}</h3>
+	{{c.description|safe}}
+	<span class="enrol">Enrolled</span><span class="rate">${{c.price}}</span>
+	<div class="learn-btn"><p class="more">BUY NOW</p></div></a>
+	</div>
+	</div>
+		{% endfor %}
+        {% else %}
+      SORRY  NO RESULTS FOUND
+        {% endif %}
+ </div>
+ </div></div>
+</section>
+</div>
+
+{% include "footer.html" %}

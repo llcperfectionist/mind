@@ -1,0 +1,254 @@
+
+ {% include "mindcreature-admin/header.html" %}
+
+      <!--main content start-->
+      <section id="main-content">
+         <div class="wrapper">
+			<div class="col-xs-12 padd-none">
+				<h3 class="page-header"><i class="fa fa-laptop"></i>Add Online Course</h3>
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home"></i><a href="../mind">Home</a></li>
+					<li><i class="fa fa-laptop"></i>Add Online Course</li>
+				</ol>
+			</div>
+
+	     <section class="admin-addCategory-content">
+		  <div class="col-xs-12 padd-none">
+		   <div class="admin-addCategory-content-inner">
+
+           {% for s in course_data_id %}
+
+            <form action="{% url "editonlinecourse" %}" method="POST" enctype="multipart/form-data" >
+				{% csrf_token %}
+                {% for s in course_data_id %}
+                <input type="hidden" name="id" value="{{s.id}}">
+                <input type="hidden" name="course_id" value="{{s.course_id_id}}">
+                {% endfor %}
+                 <div class="col-md-4">
+                  <div class="form-group">
+                  <label>Date First</label>
+                  <select name="date1" class="form-control" >
+                  <option selected="selected" value="{{s.date1}}">{{s.date1}}</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  </select>
+                  </div>
+
+                  <div class="form-group">
+                  <label>Month First</label>
+                  <select class="form-control" name="month1">
+                  <option selected="selected" value="{{s.month1}}">{{s.month1}}</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                  </select>
+                  </div>
+
+                  <div class="form-group">
+                  <label>Days first</label>
+                  <input type="text" name="day1" class="form-control" value="{{s.day1}}" required="required">
+                  </div>
+
+		          <div class="form-group">
+                  <label>Price first</label>
+                  <input type="number" name="price1" class="form-control" value="{{s.price1}}" required="required">
+                  </div>
+
+                  </div>
+                  <div class="col-md-4">
+
+                  <div class="form-group">
+                  <label>Date Second</label>
+                  <select name="date2" class="form-control" >
+                  <option selected="selected" value="{{s.date2}}">{{s.date2}}</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  </select>
+                  </div>
+
+                  <div class="form-group">
+                  <label>Month Second</label>
+                  <select class="form-control" name="month2">
+                  <option selected="selected" value="{{s.month2}}">{{s.month2}}</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                  </select>
+                  </div>
+
+                  <div class="form-group">
+                  <label>Days Second</label>
+                  <input type="text" name="day2" class="form-control" value="{{s.day2}}" required="required">
+                  </div>
+
+		          <div class="form-group">
+                  <label>Price Second</label>
+                  <input type="number" name="price2" class="form-control" value="{{s.price2}}" required="required">
+                  </div>
+
+                  </div>
+                  <div class="col-md-4">
+
+                  <div class="form-group">
+                  <label>Date Third</label>
+                  <select name="date3" class="form-control" >
+                  <option selected="selected" value="{{s.date3}}">{{s.date3}}</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  </select>
+                  </div>
+
+
+                  <div class="form-group">
+                  <label>Month Third</label>
+                  <select class="form-control" name="month3">
+                  <option selected="selected" value="{{s.month3}}">{{s.month3}}</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                  </select>
+                  </div>
+
+
+                  <div class="form-group">
+                  <label>Days Third</label>
+                  <input type="text" name="day3" class="form-control" value="{{s.day3}}" required="required">
+                  </div>
+
+		         <div class="form-group">
+                  <label>Price Third</label>
+                  <input type="number" name="price3" class="form-control" value="{{s.price3}}" required="required">
+                  </div>
+
+                   </div>
+
+
+
+
+			 <div class="btn-group">
+			  <input type="submit" value="Submit" />
+			 </div>
+			</form>
+         {% endfor %}
+
+		   </div>
+		 </div>
+	    </section>
+	  </div>
+      </section>
+      <!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

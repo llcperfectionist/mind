@@ -1,0 +1,184 @@
+
+{% include "mindcreature-admin/header.html" %}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+  selector: 'textarea',
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  content_css: '//www.tinymce.com/css/codepen.min.css'
+});
+</script>
+<!--main content start-->
+<section id="main-content">
+    <div class="wrapper">
+        <div class="col-xs-12 padd-none">
+            <h3 class="page-header"><i class="fa fa-laptop"></i>Add Course</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="../mind">Home</a></li>
+                <li><i class="fa fa-laptop"></i>Add Course</li>
+            </ol>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <section class="admin-addCategory-content">
+            <div class="col-xs-12 padd-none">
+                <div class="admin-addCategory-content-inner">
+
+
+
+                    <form action="{% url "Savecorse" %}" method="POST" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label> Name</label>
+                        <input type="text" name="name"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Url</label>
+                        <input type="text" name="url"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea  name="description" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" name="price"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" name="image" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Video link</label>
+                            <input type="text" name="video_link"/>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6" style="float: right">
+                        <div class="form-group">
+                            <label>Techers</label>
+                            <select name="teacher">
+                                <option value="" selected="selected" disabled>Select Techers</option>
+                                {% for a in teacherlist %}
+                                <option value="{{a.id}}" >{{a.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select name="categorie">
+                                <option value="" selected="selected" disabled>Select Categories</option>
+                                {% for s in categorieslisting %}
+                                <option value="{{s.id}}">{{s.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Brief Description</label>
+                        <textarea name="brief_description" id="" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Certification</label>
+                        <input type="text" name="certification" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Curriculum</label>
+                        <textarea name="curricalum" id="" ></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Assign time</label>
+                        <input type="text" name="course_assign_time" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assign Description</label>
+                        <textarea name="course_assign_description" id="" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project time</label>
+                        <input type="text" name="project_time" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Description</label>
+                        <textarea name="project_description" id="" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Lifetime access </label>
+                        <textarea name="life_time_access" id="" ></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>24 X Support </label>
+                        <textarea name="support" id="" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Get Certified </label>
+                        <textarea name="get_certified" id="" ></textarea>
+                    </div>
+
+
+                    <div class="col-md-12 text-left">
+
+
+                        <label style="width:116px">Trending Course </label>
+                        <input style="width:43px" type="checkbox" name="trending" value="1">
+
+
+
+                        <label style="width:100px">Poplar Course </label>
+                        <input style="width:43px" type="checkbox" name="popular" value="1">
+
+
+                    </div>
+                    <br>
+
+
+                    <div class="btn-group">
+                        <input type="submit" value="Submit" />
+                    </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<!--main content end-->
+{% include "mindcreature-admin/footer.html" %}

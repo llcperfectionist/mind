@@ -1,0 +1,53 @@
+{% include "mindcreature-admin/header.html" %}
+      <!--main content start-->
+<section id="main-content">
+ <div class="wrapper">
+    <div class="col-xs-12 padd-none">
+        <h3 class="page-header"><i class="fa fa-laptop"></i>Blog</h3>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="../mind">Home</a></li>
+            <li><i class="fa fa-laptop"></i>Blog list</li>
+        </ol>
+    </div>
+  {% if messages %}
+  <ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+	     <section class="admin-listCategory-content">
+		  <div class="col-xs-12 padd-none">
+		   <div class="admin-listCategory-content-inner">
+            <div class="col-xs-12 padd-none">
+			</div>
+			<div class="col-xs-12 padd-none">
+			 <table>
+			  <tbody>
+			   <tr>
+			    <th>Blog  Title</th>
+				<th>Action</th>
+			   </tr>
+			   {% if blog_list %}
+			   {% for s in blog_list %}
+			   <tr>
+			    <td>{{s.title}}</a></td>
+				<td><a href="../blog-edit/{{s.id}}" class="btn btn-info">Edit</a>&nbsp;&nbsp;&nbsp;
+					<a href="../blogdelete/{{s.id}}" class="btn btn-info">Delete</a>
+				</td>
+			   </tr>
+			  {% endfor %}
+			  {% else %}
+                     <p>No any Blog found in database.</p>
+              {% endif %}
+			  </tbody>
+			 </table>
+			</div>
+		   </div>
+		  </div>
+	    </section>
+	  </div>
+      </section>
+      <!--main content end-->
+{% include "mindcreature-admin/footer.html" %}
+

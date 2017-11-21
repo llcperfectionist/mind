@@ -1,0 +1,78 @@
+{% include "header.html" %}
+<section>
+   <div class="col-xs-12 padd-none">
+    <div class="top-strip">
+    <h1>Contact Us</h1></div>
+   </div>
+	<div class="contact-mindcreature">
+			<div class="container">
+			<div class="row">
+			 <div class="col-xs-12 padd-none">
+				<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+				 <div class="contact-part">
+					<div class="mind-icon">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					</div>
+					<h3>Address</h3>
+					<p>D-151, First Floor, Near Reliance office, Industrial Area, Phase-8, Sector-72, Mohali (160055)</p>
+				 </div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+				 <div class="contact-part">
+					<div class="mind-icon">
+				      <span class="glyphicon glyphicon-earphone"></span>
+					</div>
+					<h3>Phone</h3>
+					<p><a href="callto:+91-79734-94585">+91-79734-94585</a>, 
+					<br/><a href="callto:+91-98888-25206"> +91-98888-25206</a> ,
+					<br/> <a href="callto:+91-98887-73536">+91-98887-73536</a></p>
+				 </div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+				 <div class="contact-part">
+					<div class="mind-icon">
+						<span class="glyphicon glyphicon-envelope"></span>
+					</div>
+					<h3>Email</h3>
+					<p><a href="mailto:Onlinemindcreature@gmail.com">Onlinemindcreature@gmail.com</a></p>
+				 </div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12 padd-none">
+				 <div class="contact-part">
+					<div class="mind-icon">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<h3>Social media</h3>
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i><span class="text">Facebook</span></a></li>
+						<li class="twt"><a href="#"><i class="fa fa-twitter"></i><span class="text">Twitter</span></a></li>
+						<li class="ggp"><a href="#"><i class="fa fa-google-plus"></i><span class="text">Google+</span></a></li>	
+					</ul>
+				 </div>
+				</div>
+				{% if messages %}
+				  <ul class="messages">
+				  {% for message in messages %}
+				  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				  {% endfor %}
+				  </ul>
+				  {% endif %}
+                  <h2>Please fill the form below:</h2>
+				<form action="{% url 'savecontactus' %}" method="post">
+					                {% csrf_token %}
+
+				<div class="col-md-6 padd-none">
+					<input type="text" name="name" class="contact-field" placeholder="FIRST NAME" required=""></div>
+					<div class="col-md-6 padd-none">
+					<input type="text" name="mobile" class="contact-field" placeholder="MOBILE" required=""></div>
+					<div class="col-md-6 padd-none">
+					<input type="email" name="email"class="contact-field" placeholder="EMAIL" required=""></div>
+					<div class="col-md-6 padd-none">
+					<input type="text" name="subject" class="contact-field" placeholder="SUBJECT" required=""></div>
+					<textarea  name="message" placeholder="YOUR MESSAGE" required=""></textarea>
+					<input type="submit" value="SEND MESSAGE">
+				</form>
+		</div>
+	</div>
+</section>
+{% include "footer.html" %}
